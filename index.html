@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Scan Barcode Modern</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css"/>
+  <meta name="theme-color" content="#111"/>
+  <link rel="icon" href="icon-192.png" sizes="192x192"/>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <div class="container">
+    <div id="scan-area">
+      <div id="reader"></div>
+    </div>
+    <div id="result-area" class="hidden">
+      <h2>Hasil Scan:</h2>
+      <p id="scan-result">Belum ada scan.</p>
+      <button id="scan-again" class="glow-btn">Scan Lagi</button>
+    </div>
+  </div>
+  <nav class="bottom-nav">
+    <a class="nav-btn left glow-btn" href="http://harinfood.net" target="_blank">
+      <span class="icon">&#x1F4DD;</span>
+      <span class="label">LOGIN WIFI</span>
+    </a>
+    <button class="nav-btn center glow-btn" id="scan-icon">
+      <img src="qr.webp" alt="Barcode" class="nav-img" />
+    </button>
+    <a class="nav-btn right glow-btn" href="https://harinfood.github.io/harinfood" target="_blank">
+      <img src="shop.webp" alt="Shop" class="nav-img" />
+      <span class="label">WARUNG</span>
+    </a>
+  </nav>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
